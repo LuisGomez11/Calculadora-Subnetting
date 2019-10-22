@@ -106,7 +106,7 @@ public class Vista extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 207, 590, 80));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 207, 590, 120));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -121,7 +121,7 @@ public class Vista extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
         );
 
         pack();
@@ -154,6 +154,15 @@ public class Vista extends javax.swing.JFrame {
             String part2 = parts[1];
             String part3 = parts[2];
             String part4 = parts[3];
+            
+            int par1 = Integer.parseInt(part1);
+            int par2 = Integer.parseInt(part2);
+            int par3 = Integer.parseInt(part3);
+            int par4 = Integer.parseInt(part4);
+            
+            if(par1 > 255 || par2 > 255 || par3 > 255 || par4 > 255){
+                JOptionPane.showMessageDialog(null, "Direccion invalida, intente nuevamente", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
 
             id_red = part1 + "." + part2 + "." + part3 + "." + part4;
             primera = Integer.parseInt(part4) + 1;
@@ -195,6 +204,8 @@ public class Vista extends javax.swing.JFrame {
             modelo.addRow(fila);
 
             tabla.setModel(modelo);
+            
+            }
 
         }
     }//GEN-LAST:event_btnCalcularActionPerformed
